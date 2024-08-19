@@ -1,5 +1,6 @@
 import React from 'react'
 import onionlogo from './images/onion.png'
+import { Link } from 'react-router-dom';
  
 function Header(){
     return(
@@ -12,7 +13,9 @@ function Header(){
                 <p>Contact us</p>
             </div>
             <div className="top-btn">
+                <Link to="/signup">
             <button className="sign-up">Sign up</button>
+            </Link>
             <button className="sign-in">Sign in</button>
             </div>
         </div>

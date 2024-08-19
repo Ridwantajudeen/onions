@@ -512,3 +512,113 @@ box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.01),
   font-size: x-small;
   margin-left: auto;
 }
+
+.signup-container{
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  margin-top: 40px;
+}
+.signup-content{
+  display: flex;
+padding: 10px;
+border-radius: 10px;
+box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.01),
+0px 0px 10px rgb(0, 0, 0, 0.01),
+10px 0px 10px rgb(0, 0, 0, 0.01),
+-10px 0px 10px rgb(0, 0, 0, 0.01);
+  background-color: #fefefe;
+}
+.signup-container .signup-image{
+  width: 360px;
+  border-radius: 10px;
+}
+
+.signup-container .signup-logo{
+  height: 40px;
+  padding: 0;
+  margin: 0;
+}
+.signup-container .signup-right{
+  text-align: center;
+  width: 500px;
+}
+.signup-container .signup-right h4{
+  color: #35740b;
+}
+.signup-container .signup-right p{
+  font-size: x-small;
+  margin-bottom: 20px;
+}
+
+.signup-container .signup-right .user-type-selection{
+  margin-bottom: 20px;
+  
+}
+
+.signup-container .signup-right .user-type-selection label{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.signup-container .signup-right .signup-form{
+  text-align: left;
+  display: grid;
+  place-items: center;
+  font-size: small;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.signup-container .signup-right .signup-form input{
+  width: 300px;
+  border: solid #ccc 1px;
+  border-radius: 5px;
+  height: 20px;
+ 
+}
+.signup-container .signup-right .signup-form .error-message{
+  color: rgb(249, 65, 65);
+  font-size: x-small;
+}
+.signup-container .signup-right .signup-submit{
+  background-color: #35740b;
+  width: 300px;
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+  font-size: x-small;
+  color: #fff;
+}
+.password-input-container {
+  position: relative;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
+}
+.signup-container .signup-right .signup-line{
+  width: 300px;
+  text-align: center;
+}
+
+.signup-container .signup-right .google-logo{
+  height: 15px;
+  margin-right: 5px;
+}
+.signup-container .signup-right .google-button{
+  width: 300px;
+  border-radius: 10px;
+  border: solid #ccc 1px;
+  height: 30px;
+  font-size: x-small;
+}
+.signup-container .signup-right .signup-login{
+  color: #35740b;
+ text-decoration: none;
+}

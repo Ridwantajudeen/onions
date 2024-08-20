@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import signup from './images/signup.jpg';
+import { Link } from 'react-router-dom';
 import logo from './Landing-page/images/onion.png';
 import eyeIcon from './images/show-password.png';
 import line from './images/or-line.png'; // Ensure this path is correct
@@ -87,7 +88,9 @@ function Signup() {
           <img src={signup} className='signup-image' alt='signup-image' />
         </div>
         <div className='signup-right'>
+        <Link to="/">
           <img src={logo} className='signup-logo' alt='logo' />
+          </Link>
           <h4>Create an account</h4>
           <p>Sign Up now and get exclusive access</p>
           <form onSubmit={handleSubmit}>
@@ -229,8 +232,8 @@ function Signup() {
                 <button className='signup-submit' type="submit">Sign Up</button>
                 <div className='signup-bottom'>
                   <img src={line} className='signup-line' alt='line'/><br />
-                  <button className='google-button'><img src={google} className='google-logo' alt='google'/>Sign up with Google</button>
-                  <p>Already have an account? <a className='signup-login' href='/'>Login</a></p>
+                  <button className='google-button'><img src={google} className='google-logo' alt='google'/>Sign up with Google</button><br />
+                  <p>Already have an account? <a className='signup-login' href='/login'>Login</a></p>
                 </div>
               </>
             )}

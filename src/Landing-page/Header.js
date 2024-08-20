@@ -16,7 +16,9 @@ function Header(){
                 <Link to="/signup">
             <button className="sign-up">Sign up</button>
             </Link>
+            <Link to="/login">
             <button className="sign-in">Sign in</button>
+            </Link>
             </div>
         </div>
     )

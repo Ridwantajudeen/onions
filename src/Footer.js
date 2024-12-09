@@ -40,7 +40,7 @@ with potential employers</p>
             <h5>Quick Contact</h5>
             <li><img src={location} className="footer-right-img" alt='footer-right-img'/><p> Ugbowo,Benin City, Edo 
             State,Nigeria.</p></li>
-            <li><img src={call} className="footer-right-img" alt='footer-right-img'/><p>0812576727, 0912767956</p></li>
+            <li><img src={call} className="footer-right-img" alt='footer-right-img'/><p>07047203471, 0812576727</p></li>
         </ul>
        </div>
        </div>

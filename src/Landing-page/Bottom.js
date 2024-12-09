@@ -42,7 +42,10 @@ opportunities to Teachers.</p>
             <div className='btm-middle'>
                 <h1 className='btm-middle-text' >Frequently asked Questions</h1>
                 <div className='btm-middle-card'>
+                    <div id='middle-card-img'>
+                   
                     <img src={think} className='middle-card-img' alt='middle-card-img'/>
+                    </div>
                     <div className=' middle-card-texts'>
                         <div className='middle-card-compo'>
                             <h4 className=' middle-card-text'>Could distance be a barrier?</h4>

@@ -14,7 +14,7 @@ function Middle(){
             </div>
             <div className='middle-middle'>
                 <div className='mid-left'>
-                    <h1>Teachers</h1>
+                    <h1 className='teacher-text'>Teachers</h1>
                     <div className='mid-list'>
                         <div id='mid-list'>
                         <img src={check} className='mid-check' alt="check"/>
@@ -36,8 +36,12 @@ employability.</p>
                     </div>
                     <button className='mid-btn'>Find jobs</button>
                 </div>
-                <div>
+                <div className='mid-right'>
+                <h1 className='teacher-text'>Teachers</h1>
+                <div className='mid-right-img'>
+                
                    <img src={board} className='middle-img' alt="middle-img"/>
+                </div>
                 </div>
             </div>
             <div className='middle-btm'>

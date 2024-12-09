@@ -7,11 +7,7 @@ function Landing(){
     return(
         <div>
             <Header/>
-  <div style={{
-      display: 'grid',
-      placeItems: 'center',
-     
-    }}>
+  <div className="between">
     <Welcome/>
      <Middle/>
      <Bottom/>

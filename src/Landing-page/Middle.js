@@ -48,7 +48,9 @@ employability.</p>
                 <div className="btm1">
                     <h1>Parents</h1>
                     <div className='mid-list'>
-                    <img src={parents} className='btm1-img' alt='btm1-img'/>
+                     
+                     <img src={parents} className='btm1-img' alt='btm1-img'/>
+                    
                         <div id='mid-list'>
                         <img src={check} className='mid-check' alt="check"/>
                         <p className='mid-text'>Improve your child’s academic performance by one<br />

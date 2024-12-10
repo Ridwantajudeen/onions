@@ -12,9 +12,9 @@ function Welcome(){
                <h1 className="left-top"> Know your Onions?<br />
                 <span className="left-top2">Find a Teaching Job</span>
                 </h1>
-                <p className="left-btm">For Teachers seeking new Job Opportunities, parents searching<br />
-to enhance their child’s academic performance and school faced<br />
-with staffing shortages, we bridged the gap between needs and<br />
+                <p className="left-btm">For Teachers seeking new Job Opportunities, parents searching
+to enhance their child’s academic performance and school faced
+with staffing shortages, we bridged the gap between needs and
 qualification.</p>
                 </div>
                 <div className="left-btn">

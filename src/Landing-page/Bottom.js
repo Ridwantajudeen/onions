@@ -1,104 +1,124 @@
-import React from 'react'
-import employ from './images/employ.png'
-import career from './images/career.png'
-import management from './images/management.png'
-import think from './images/think.png'
-import arrow from "./images/arrow-down.png"
-import contact from "./images/contact.png"
+import React from 'react';
+import employ from './images/employ.png';
+import career from './images/career.png';
+import management from './images/management.png';
+import think from './images/think.png';
+import arrow from './images/arrow-down.png';
+import contact from './images/contact.png';
 
-function Bottom(){
-    return(
-        <div className='bottom'>
-            <div className='btm-first'>
-                <h1 className='btm-first-text'>Why Onions?</h1>
-
-                <div className='btm-first-cards'>
-                <div className='btm-first-card'>
-                    <img src={employ} className='btm-first-card-img' alt='btm-first-card-img'/>
-                    <h1>Employment<br />
-                    Opportunities</h1>
-                    <p>Reducing the rates of unemployment in<br /> 
-Nigeria and providing career development <br />
-opportunities to Teachers.</p>
-                </div>
-                <div className='btm-first-card'>
-                    <img src={career} className='btm-first-card-img' alt='btm-first-card-img'/>
-                    <h1>Employment<br />
-                    Opportunities</h1>
-                    <p>Reducing the rates of unemployment in<br /> 
-Nigeria and providing career development <br />
-opportunities to Teachers.</p>
-                </div>
-                <div className='btm-first-card'>
-                    <img src={management} className='btm-first-card-img' alt='btm-first-card-img'/>
-                    <h1>Employment<br />
-                    Opportunities</h1>
-                    <p>Reducing the rates of unemployment in<br /> 
-Nigeria and providing career development <br />
-opportunities to Teachers.</p>
-                </div>
-                </div>
+function Bottom() {
+  return (
+    <div className="px-4 py-12 space-y-16 overflow-x-hidden">
+      {/* Why Onions */}
+      <section>
+        <h1 className="text-3xl font-bold text-center mb-8">Why Onions?</h1>
+        <div className="grid gap-8 md:grid-cols-3">
+          {[employ, career, management].map((img, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded shadow p-6 text-center space-y-4"
+            >
+              <img
+                src={img}
+                alt="why-onions"
+                className="w-16 h-16 mx-auto"
+              />
+              <h2 className="text-xl font-semibold">Employment Opportunities</h2>
+              <p className="text-sm text-gray-600">
+                Reducing the rates of unemployment in Nigeria and providing career
+                development opportunities to Teachers.
+              </p>
             </div>
-            <div className='btm-middle'>
-                <h1 className='btm-middle-text' >Frequently asked Questions</h1>
-                <div className='btm-middle-card'>
-                    <div id='middle-card-img'>
-                   
-                    <img src={think} className='middle-card-img' alt='middle-card-img'/>
-                    </div>
-                    <div className=' middle-card-texts'>
-                        <div className='middle-card-compo'>
-                            <h4 className=' middle-card-text'>Could distance be a barrier?</h4>
-                            <img src={arrow} className='middle-card-icon' alt='arrow'/>
-                        </div>
-                        <div className='middle-card-compo'>
-                            <h4 className=' middle-card-text'>How many extra hone lesson jobs can I<br /> 
-                            apply for?</h4>
-                            <img src={arrow} className='middle-card-icon' alt='arrow'/>
-                        </div>
-                        <div className='middle-card-compo'>
-                            <h4 className=' middle-card-text'>How can i be sure that the teachers listed<br /> 
-                            are genuine?</h4>
-                            <img src={arrow} className='middle-card-icon' alt='arrow'/>
-                        </div>
-                        <div className='middle-card-compo'>
-                            <h4 className=' middle-card-text'>How many hours for an extra home<br /> 
-                            lesson schedule?</h4>
-                            <img src={arrow} className='middle-card-icon' alt='arrow'/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='bottom-contact'>
-                <h1>Contact Us</h1>
-                <div className='bottom-contact-det'>
-                <div className='bottom-contact-left'>
-                    <h2>Have Further Enquiries?</h2>
-                    <p>Send us a mail for more information</p>
-                    <form>
-                    <div className='contact-left-one'>
-                        <div>
-                        <p>Name</p>
-                        <input className='left-one-input' />
-                    </div>
-                    <div>
-                        <p>Email Address</p>
-                        <input className='left-one-input' />
-                    </div>
-                    </div>
-                    <div className='contact-left-two'>
-                        <p>Message</p>
-                        <textarea className="left-two-input" rows={5}/>
-                    </div>
-                    <button type='submit'>Submit</button>
-                    </form>
-                </div>
-                <img src={contact} className='bottom-contact-img' alt='bottom-contact-img'/>
-                </div>
-               
-            </div>
+          ))}
         </div>
-    )
+      </section>
+
+      {/* FAQ */}
+      <section>
+        <h1 className="text-3xl font-bold text-center mb-8">
+          Frequently Asked Questions
+        </h1>
+        <div className="flex flex-col md:flex-row gap-8 items-start">
+          <img
+            src={think}
+            alt="faq"
+            className="w-48 md:w-64 mx-auto md:mx-0"
+          />
+          <div className="flex-1 space-y-4">
+            {[
+              'Could distance be a barrier?',
+              'How many extra home lesson jobs can I apply for?',
+              'How can I be sure that the teachers listed are genuine?',
+              'How many hours for an extra home lesson schedule?'
+            ].map((q, idx) => (
+              <div
+                key={idx}
+                className="flex justify-between items-center border-b pb-2"
+              >
+                <h4 className="text-gray-800">{q}</h4>
+                <img
+                  src={arrow}
+                  alt="arrow"
+                  className="w-4 h-4"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="bg-gray-100 p-6 rounded-lg">
+        <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+          {/* Left */}
+          <div className="flex-1 space-y-4">
+            <h2 className="text-xl font-semibold">Have Further Enquiries?</h2>
+            <p>Send us a mail for more information</p>
+            <form className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm mb-1">Name</p>
+                  <input
+                    className="w-full border border-gray-300 p-2 rounded"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm mb-1">Email Address</p>
+                  <input
+                    className="w-full border border-gray-300 p-2 rounded"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <p className="text-sm mb-1">Message</p>
+                <textarea
+                  rows={5}
+                  className="w-full border border-gray-300 p-2 rounded"
+                  placeholder="Your message"
+                />
+              </div>
+              <button
+  type="submit"
+  className="w-[340px] h-[30px] border-none text-[#35740b] font-bold mt-10 rounded bg-[#fefefe]"
+>
+  Submit
+</button>
+            </form>
+          </div>
+
+          {/* Right */}
+          <img
+            src={contact}
+            alt="contact"
+            className="w-64 md:w-80"
+          />
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default Bottom;

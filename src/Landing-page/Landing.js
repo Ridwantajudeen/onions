@@ -3,16 +3,17 @@ import Header from "./Header";
 import Middle from "./Middle";
 import Welcome from "./Welcome";
 
-function Landing(){
-    return(
-        <div>
-            <Header/>
-  <div className="between">
-    <Welcome/>
-     <Middle/>
-     <Bottom/>
-      </div>
-        </div>
-    )
+function Landing() {
+  return (
+    <div>
+      <Header />
+      <main className="grid place-items-center gap-8">
+        <Welcome />
+        <Middle />
+        <Bottom />
+      </main>
+    </div>
+  );
 }
+
 export default Landing;

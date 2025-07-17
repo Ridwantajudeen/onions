@@ -3,8 +3,8 @@ import signup from './images/signup.jpg';
 import { Link } from 'react-router-dom';
 import logo from './Landing-page/images/onion.png';
 import eyeIcon from './images/show-password.png';
-import line from './images/or-line.png'; // Ensure this path is correct
-import google from './images/google-logo.png'; // Ensure this path is correct
+import line from './images/or-line.png';
+import google from './images/google-logo.png';
 
 function Signup() {
   const [userType, setUserType] = useState('');
@@ -24,27 +24,26 @@ function Signup() {
 
   const validatePassword = (password) => {
     if (password.length < 8) {
-      setError("Password must be at least 8 characters long.");
+      setError("Password must be at least 8 characters.");
       return false;
     }
     if (!/[A-Z]/.test(password)) {
-      setError("Password must contain at least one uppercase letter.");
+      setError("Include at least one uppercase letter.");
       return false;
     }
     if (!/[a-z]/.test(password)) {
-      setError("Password must contain at least one lowercase letter.");
+      setError("Include at least one lowercase letter.");
       return false;
     }
     if (!/\d/.test(password)) {
-      setError("Password must contain at least one digit.");
+      setError("Include at least one digit.");
       return false;
     }
     if (!/[@#!$%&*()?]/.test(password)) {
-      setError("Password must contain at least one special character.");
+      setError("Include at least one special character.");
       return false;
     }
-
-    setError(''); // Clear error if all conditions are met
+    setError('');
     return true;
   };
 
@@ -53,188 +52,156 @@ function Signup() {
       setError2("Passwords do not match.");
       return false;
     }
-
-    setError2(''); // Clear error if passwords match
+    setError2('');
     return true;
   };
 
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
-    validatePassword(newPassword); // Validate as the user types
+    validatePassword(newPassword);
   };
 
   const handleConfirmPasswordChange = (e) => {
     const newConfirmPassword = e.target.value;
     setConfirmPassword(newConfirmPassword);
-    validateConfirmPassword(password, newConfirmPassword); // Validate as the user types
+    validateConfirmPassword(password, newConfirmPassword);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (userType === 'employer' && (!validatePassword(password) || !validateConfirmPassword(password, confirmPassword))) {
-      return; // Stop form submission if validation fails
+    if (!validatePassword(password) || !validateConfirmPassword(password, confirmPassword)) {
+      return;
     }
-
-    // Handle form submission here
     console.log('User type:', userType);
   };
 
   return (
-    <div className="signup-container">
-      <div className='signup-content'>
-        <div className='signup-img'>
-          <img src={signup} className='signup-image' alt='signup-image' />
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
+      <div className="flex max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Left Image */}
+        <div className="hidden md:block md:w-1/2">
+          <img src={signup} alt="signup" className="h-full w-full object-cover" />
         </div>
-        <div className='signup-right'>
-        <Link to="/">
-          <img src={logo} className='signup-logo' alt='logo' />
+
+        {/* Right Form */}
+        <div className="w-full md:w-1/2 flex flex-col items-center px-8 py-10">
+          <Link to="/" className="mb-4">
+            <img src={logo} alt="logo" className="h-10 mx-auto" />
           </Link>
-          <h4>Create an account</h4>
-          <p>Sign Up now and get exclusive access</p>
-          <form onSubmit={handleSubmit}>
-            <div className="user-type-selection">
-              <label>
+
+          <h4 className="text-2xl font-semibold text-green-800 mt-2">Create an account</h4>
+          <p className="text-sm text-gray-500 mt-1">Sign up now and get exclusive access</p>
+
+          <form onSubmit={handleSubmit} className="w-full max-w-xs mt-6 space-y-4">
+            {/* User Type */}
+            <div className="flex justify-around">
+              <label className="text-sm">
                 <input
                   type="radio"
                   value="employer"
                   checked={userType === 'employer'}
                   onChange={handleUserTypeChange}
+                  className="mr-1"
                 />
                 Employer
               </label>
-              <label>
+              <label className="text-sm">
                 <input
                   type="radio"
                   value="teacher"
                   checked={userType === 'teacher'}
                   onChange={handleUserTypeChange}
+                  className="mr-1"
                 />
                 Teacher
               </label>
             </div>
 
-            {userType === 'employer' && (
-              <div className="employer-form">
-                <h3>Employer Signup</h3>
-                <div className='signup-form'>
-                  <label>
-                    Full Name:<br />
-                    <input type="text" name="fullName" required />
-                  </label><br />
-                  <label>
-                    Email: <br />
-                    <input type="email" name="Email" required />
-                  </label><br />
-                  <div className="password-input-container">
-                    <label>
-                      Password: <br />
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        name="Password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                        required
-                      />
-                      <img
-                        src={eyeIcon}
-                        alt="Show Password"
-                        className="toggle-password-icon"
-                        onClick={toggleShowPassword}
-                      />
-                    </label>
-                  </div>
-                  {error && <div className="error-message">{error}</div>}<br />
-                  <div className="password-input-container">
-                    <label>
-                      Confirm Password: <br />
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        name="ConfirmPassword"
-                        value={confirmPassword}
-                        onChange={handleConfirmPasswordChange}
-                        required
-                      />
-                      <img
-                        src={eyeIcon} 
-                        alt="Show Password"
-                        className="toggle-password-icon"
-                        onClick={toggleShowPassword}
-                      />
-                    </label>
-                  </div>{error2 && <div className="error-message">{error2}</div>}
-                  <br />
-                </div>
-              </div>
-            )}
-
-            {userType === 'teacher' && (
-              <div className="teacher-form">
-                <h3>Teacher Signup</h3>
-                <div className='signup-form'>
-                  <label>
-                    Full Name:<br />
-                    <input type="text" name="fullName" required />
-                  </label><br />
-                  <label>
-                    Email: <br />
-                    <input type="email" name="Email" required />
-                  </label><br />
-                  <div className="password-input-container">
-                    <label>
-                      Password: <br />
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        name="Password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                        required
-                      />
-                      <img
-                        src={eyeIcon}
-                        alt="Show Password"
-                        className="toggle-password-icon"
-                        onClick={toggleShowPassword}
-                      />
-                    </label>
-                  </div>
-                  {error && <div className="error-message">{error}</div>}<br />
-                  <div className="password-input-container">
-                    <label>
-                      Confirm Password: <br />
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        name="ConfirmPassword"
-                        value={confirmPassword}
-                        onChange={handleConfirmPasswordChange}
-                        required
-                      />
-                      <img
-                        src={eyeIcon} 
-                        alt="Show Password"
-                        className="toggle-password-icon"
-                        onClick={toggleShowPassword}
-                      />
-                    </label>
-                  </div>{error2 && <div className="error-message">{error2}</div>}
-                  <br />
-                  <label>
-                  Resume: <br />
-                  <input type="file" name="resume" />
-                </label><br />
-                </div>
-              </div>
-            )}
-
             {userType && (
               <>
-                <button className='signup-submit' type="submit">Sign Up</button>
-                <div className='signup-bottom'>
-                  <img src={line} className='signup-line' alt='line'/><br />
-                  <button className='google-button'><img src={google} className='google-logo' alt='google'/>Sign up with Google</button><br />
-                  <p>Already have an account? <a className='signup-login' href='/login'>Login</a></p>
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  required
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+                />
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    name="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    required
+                    className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+                  />
+                  <img
+                    src={eyeIcon}
+                    alt="Toggle Password"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer"
+                    onClick={toggleShowPassword}
+                  />
                 </div>
+                {error && <p className="text-xs text-red-600">{error}</p>}
+
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={handleConfirmPasswordChange}
+                    required
+                    className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+                  />
+                  <img
+                    src={eyeIcon}
+                    alt="Toggle Password"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer"
+                    onClick={toggleShowPassword}
+                  />
+                </div>
+                {error2 && <p className="text-xs text-red-600">{error2}</p>}
+
+                {userType === 'teacher' && (
+                  <input
+                    type="file"
+                    name="resume"
+                    className="text-sm"
+                  />
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full bg-green-800 text-white text-sm font-medium py-2 rounded hover:bg-green-700 transition-colors"
+                >
+                  Sign Up
+                </button>
+
+                <div className="w-full flex items-center my-4">
+                  <img src={line} alt="or" className="w-full" />
+                </div>
+
+                <button className="w-full flex items-center justify-center border border-gray-300 rounded py-2 text-sm hover:bg-gray-100 transition-colors">
+                  <img src={google} alt="Google" className="h-4 w-4 mr-2" />
+                  Sign up with Google
+                </button>
+
+                <p className="text-xs text-gray-600 mt-4 text-center">
+                  Already have an account?{' '}
+                  <Link to="/login" className="text-green-800 font-medium hover:underline">
+                    Login
+                  </Link>
+                </p>
               </>
             )}
           </form>

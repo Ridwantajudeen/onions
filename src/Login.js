@@ -3,8 +3,8 @@ import login from './images/login-img.jpg';
 import logo from './Landing-page/images/onion.png';
 import eyeIcon from './images/show-password.png';
 import { Link } from 'react-router-dom';
-import line from './images/or-line.png'; // Ensure this path is correct
-import google from './images/google-logo.png'; // Ensure this path is correct
+import line from './images/or-line.png';
+import google from './images/google-logo.png';
 
 function Login() {
   const [password, setPassword] = useState('');
@@ -24,49 +24,87 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-      <div className='login-content'>
-        <div className='login-img'>
-          <img src={login} className='login-image' alt='login-image' />
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
+      <div className="flex max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Left Image */}
+        <div className="hidden md:block md:w-1/2">
+          <img src={login} alt="login" className="h-full w-full object-cover" />
         </div>
-        <div className='login-right'>
-        <Link to="/">
-          <img src={logo} className='login-logo' alt='logo' />
+
+        {/* Right Form */}
+        <div className="w-full md:w-1/2 flex flex-col items-center px-8 py-10">
+          <Link to="/" className="mb-4">
+            <img src={logo} alt="logo" className="h-10 mx-auto" />
           </Link>
-          <h4>Welcome Back</h4>
-          <p>Login to Continue your Journey</p>
-          <div className='login-form'>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Email: <br />
-              <input type="email" name="Email" required />
-            </label><br />
-            <div className="password-input-container">
-              <label>
-                Password: <br />
+
+          <h4 className="text-2xl font-semibold text-green-800 mt-2">Welcome Back</h4>
+          <p className="text-sm text-gray-500 mt-1">Login to continue your journey</p>
+
+          <form onSubmit={handleSubmit} className="w-full max-w-xs mt-6 space-y-4">
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="text-sm font-medium text-gray-700">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                className="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-700"
+              />
+            </div>
+
+            {/* Password */}
+            <div>
+              <label htmlFor="password" className="text-sm font-medium text-gray-700">
+                Password
+              </label>
+              <div className="relative mt-1">
                 <input
-                  type={showPassword ? "text" : "password"}
-                  name="Password"
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  id="password"
                   value={password}
                   onChange={handlePasswordChange}
                   required
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
                 <img
                   src={eyeIcon}
                   alt="Show Password"
-                  className="toggle-password-icon"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer"
                   onClick={toggleShowPassword}
                 />
-              </label>
+              </div>
             </div>
-            <button className='login-submit' type="submit">Login</button>
+
+            {/* Submit */}
+            <button
+              type="submit"
+              className="w-full bg-green-800 text-white text-sm font-medium py-2 rounded hover:bg-green-700 transition-colors"
+            >
+              Login
+            </button>
           </form>
+
+          {/* Divider */}
+          <div className="w-full max-w-xs flex items-center my-4">
+            <img src={line} alt="or" className="w-full" />
           </div>
-          <div className='login-bottom'>
-            <img src={line} className='login-line' alt='line'/><br />
-            <button className='google-button'><img src={google} className='google-logo' alt='google'/>Login with Google</button><br />
-            <p>Don’t have an account? <a className='login-login' href='/signup'>sign up</a></p>
-          </div>
+
+          {/* Google Login */}
+          <button className="w-full max-w-xs flex items-center justify-center border border-gray-300 rounded py-2 text-sm hover:bg-gray-100 transition-colors">
+            <img src={google} alt="Google" className="h-4 w-4 mr-2" />
+            Login with Google
+          </button>
+
+          <p className="text-xs text-gray-600 mt-4">
+            Don’t have an account?{' '}
+            <Link to="/signup" className="text-green-800 font-medium hover:underline">
+              Sign up
+            </Link>
+          </p>
         </div>
       </div>
     </div>
@@ -74,4 +112,3 @@ function Login() {
 }
 
 export default Login;
-

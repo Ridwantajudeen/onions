@@ -3,46 +3,59 @@ import teacher from './images/teacher.png'
 import vector from './images/Vector.png'
 import profile from './images/profile-circle.png'
 import people from './images/people.png'
-function Welcome(){
-    return(
-        <div id="welcome">
-        <div className="welcome">
-            <div className="the-left">
-                <div>
-               <h1 className="left-top"> Know your Onions?<br />
-                <span className="left-top2">Find a Teaching Job</span>
-                </h1>
-                <p className="left-btm">For Teachers seeking new Job Opportunities, parents searching
-to enhance their child’s academic performance and school faced
-with staffing shortages, we bridged the gap between needs and
-qualification.</p>
-                </div>
-                <div className="left-btn">
-                    <button className="left-find">Find jobs</button>
-                    <button className="left-hire">Hire a Teacher</button>
-                </div>
-            </div>
-            <div className="the-right">
-                <img src={teacher} className="welcome-img" alt="welcome-img"/>
-            </div>
+
+function Welcome() {
+  return (
+    <section id="welcome" className="px-4 py-8 max-w-7xl mx-auto">
+      <div className="flex flex-col-reverse md:flex-row items-center gap-8 bg-white rounded-2xl p-6">
+        {/* Left */}
+        <div className="flex-1 space-y-4">
+          <h1 className="text-3xl md:text-5xl font-bold leading-snug">
+            Know your Onions? <br />
+            <span className="text-green-800">Find a Teaching Job</span>
+          </h1>
+          <p className="text-sm text-gray-700 max-w-md">
+            For Teachers seeking new Job Opportunities, parents searching
+            to enhance their child’s academic performance and schools faced
+            with staffing shortages, we bridge the gap between needs and
+            qualification.
+          </p>
+          <div className="flex gap-3 mt-4">
+            <button className="px-4 py-1.5 text-xs rounded-lg bg-green-800 text-white hover:bg-white hover:text-green-800 hover:border hover:border-green-800">
+              Find Jobs
+            </button>
+            <button className="px-4 py-1.5 text-xs rounded-lg bg-white text-green-800 border border-green-800 hover:bg-green-800 hover:text-white">
+              Hire a Teacher
+            </button>
+          </div>
         </div>
-        <div className="welcome-btm">
-            <div className="welcome-objects">
-                <img className="vector" src={vector} alt="vector"/><bro />
-                <p className="the-vector">500+<br /> Schools</p>
-            </div>
-            <div className="welcome-objects">
-                <img className="people" src={people} alt="people"/><bro />
-                <p className="the-people">500+<br /> Teachers</p>
-            </div>
-            <div className="welcome-objects">
-                <img className="profile" src={profile} alt="profile"/><bro />
-                <p className="the-profile">500+<br /> Employers</p>
-            </div>
-           
+
+        {/* Right */}
+        <div className="flex-1 flex justify-center">
+          <img
+            src={teacher}
+            alt="welcome-img"
+            className="max-w-xs md:max-w-md rounded-xl"
+          />
         </div>
-        </div>
-    )
+      </div>
+
+      <div className="mt-8 flex justify-around items-center gap-4 bg-white shadow-sm rounded-2xl p-4">
+  <div className="text-center">
+    <img src={vector} alt="vector" className="w-4 mx-auto mb-1" />
+    <p className="text-sm">500+ <br /> Schools</p>
+  </div>
+  <div className="text-center">
+    <img src={people} alt="people" className="w-4 mx-auto mb-1" />
+    <p className="text-sm">500+ <br /> Teachers</p>
+  </div>
+  <div className="text-center">
+    <img src={profile} alt="profile" className="w-4 mx-auto mb-1" />
+    <p className="text-sm">500+ <br /> Employers</p>
+  </div>
+</div>
+    </section>
+  )
 }
 
-export default Welcome;
+export default Welcome

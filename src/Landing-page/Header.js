@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import onionlogo from './images/onion.png';
 import { Link } from 'react-router-dom';
 
 function Header() {
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+        // Scrolled past 150px & scrolling down
+        setHidden(true);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setHidden(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className="flex justify-between items-center h-16 px-4 md:px-8 sticky top-0 bg-white z-50 shadow-sm">
+    <header
+      className={`fixed top-0 left-0 w-full flex justify-between items-center h-16 px-4 md:px-8 bg-white z-50 shadow-sm transform transition-transform duration-300 ${
+        hidden ? '-translate-y-full' : 'translate-y-0'
+      }`}
+    >
       <a href="#home">
         <img
           src={onionlogo}

@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import employ from './images/employ.png';
 import career from './images/career.png';
 import management from './images/management.png';
 import think from './images/think.png';
-import arrow from './images/arrow-down.png';
 import contact from './images/contact.png';
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
 function Bottom() {
+  const [openFAQ, setOpenFAQ] = useState(null);
+
+  const toggleFAQ = (idx) => {
+    setOpenFAQ(openFAQ === idx ? null : idx);
+  };
+
+  const faqItems = [
+    {
+      question: 'Could distance be a barrier?',
+      answer:
+        'Distance may affect availability depending on the teacher’s location and your needs. We recommend discussing upfront.',
+    },
+    {
+      question: 'How many extra home lesson jobs can I apply for?',
+      answer: 'There is no limit — you can apply for as many as you’re qualified for.',
+    },
+    {
+      question: 'How can I be sure that the teachers listed are genuine?',
+      answer: 'We vet all teachers and verify their credentials before listing them.',
+    },
+    {
+      question: 'How many hours for an extra home lesson schedule?',
+      answer: 'Lesson hours vary depending on the agreed schedule between you and the teacher.',
+    },
+  ];
+
   return (
     <div className="px-4 py-12 space-y-16 overflow-x-hidden">
       {/* Why Onions */}
@@ -45,22 +71,26 @@ function Bottom() {
             className="w-48 md:w-64 mx-auto md:mx-0"
           />
           <div className="flex-1 space-y-4">
-            {[
-              'Could distance be a barrier?',
-              'How many extra home lesson jobs can I apply for?',
-              'How can I be sure that the teachers listed are genuine?',
-              'How many hours for an extra home lesson schedule?'
-            ].map((q, idx) => (
+            {faqItems.map((item, idx) => (
               <div
                 key={idx}
-                className="flex justify-between items-center border-b pb-2"
+                className="border-b pb-2"
               >
-                <h4 className="text-gray-800">{q}</h4>
-                <img
-                  src={arrow}
-                  alt="arrow"
-                  className="w-4 h-4"
-                />
+                <button
+                  type="button"
+                  className="flex justify-between items-center w-full cursor-pointer"
+                  onClick={() => toggleFAQ(idx)}
+                >
+                  <h4 className="text-gray-800 font-medium text-left">{item.question}</h4>
+                  <ChevronDownIcon
+                    className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${openFAQ === idx ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${openFAQ === idx ? 'max-h-40 mt-2' : 'max-h-0'}`}
+                >
+                  <p className="text-sm text-gray-600">{item.answer}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -101,11 +131,11 @@ function Bottom() {
                 />
               </div>
               <button
-  type="submit"
-  className="w-[340px] h-[30px] border-none text-[#35740b] font-bold mt-10 rounded bg-[#fefefe]"
->
-  Submit
-</button>
+                type="submit"
+                className="w-[340px] h-[30px] border-none text-[#35740b] font-bold mt-10 rounded bg-[#fefefe]"
+              >
+                Submit
+              </button>
             </form>
           </div>
 

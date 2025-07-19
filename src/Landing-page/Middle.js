@@ -6,7 +6,10 @@ import parents from "./images/parents.jpg";
 
 function Middle() {
   return (
-    <div className="middle px-4 py-12 overflow-x-hidden">
+    <div
+  className="middle px-4 py-12 overflow-x-hidden"
+  style={{ backgroundColor: '#f6fff2' }}
+>
       <div className="text-center mb-12">
         <h1 className="text-3xl font-bold text-gray-800">
           Teachers, Schools, Parents

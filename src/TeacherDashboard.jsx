@@ -11,7 +11,7 @@ function TeacherDashboard() {
       <h1 className="text-2xl font-bold">Teacher Dashboard</h1>
       <p>Welcome, teacher</p>
       <div className="mt-4">
-        <p className="text-gray-700">This a work in progress, stay tuned for more features!</p>
+        <p className="text-gray-700">This is a work in progress, stay tuned for more features!</p>
         </div>
     </div>
   );

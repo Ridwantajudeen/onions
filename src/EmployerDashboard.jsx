@@ -10,7 +10,7 @@ function EmployerDashboard() {
       <h1 className="text-2xl font-bold">Employer Dashboard</h1>
       <p>Welcome, employer!</p>
       <div className="mt-4">
-        <p className="text-gray-700">This a work in progress, stay tuned for more features!</p>
+        <p className="text-gray-700">This is a work in progress, stay tuned for more features!</p>
         </div>
     </div>
   );

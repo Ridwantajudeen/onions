@@ -5,7 +5,7 @@ import Welcome from "./Welcome";
 
 function Landing() {
   return (
-    <div>
+    <div id="home">
       <Header />
       <main className="grid place-items-center gap-8">
         <Welcome />

@@ -13,6 +13,27 @@ function Bottom() {
     setOpenFAQ(openFAQ === idx ? null : idx);
   };
 
+  const whyItems = [
+    {
+      img: employ,
+      title: 'Employment Opportunities',
+      desc:
+        'Reducing the rates of unemployment in Nigeria and providing career development opportunities to Teachers.',
+    },
+    {
+      img: career,
+      title: 'Career Growth',
+      desc:
+        'Helping teachers grow professionally by matching them with meaningful teaching opportunities.',
+    },
+    {
+      img: management,
+      title: 'Efficient Management',
+      desc:
+        'We provide tools and systems to make managing home lessons and teacher schedules easier for parents.',
+    },
+  ];
+
   const faqItems = [
     {
       question: 'Could distance be a barrier?',
@@ -21,15 +42,18 @@ function Bottom() {
     },
     {
       question: 'How many extra home lesson jobs can I apply for?',
-      answer: 'There is no limit — you can apply for as many as you’re qualified for.',
+      answer:
+        'There is no limit — you can apply for as many as you’re qualified for.',
     },
     {
       question: 'How can I be sure that the teachers listed are genuine?',
-      answer: 'We vet all teachers and verify their credentials before listing them.',
+      answer:
+        'We vet all teachers and verify their credentials before listing them.',
     },
     {
       question: 'How many hours for an extra home lesson schedule?',
-      answer: 'Lesson hours vary depending on the agreed schedule between you and the teacher.',
+      answer:
+        'Lesson hours vary depending on the agreed schedule between you and the teacher.',
     },
   ];
 
@@ -39,28 +63,25 @@ function Bottom() {
       <section>
         <h1 className="text-3xl font-bold text-center mb-8">Why Onions?</h1>
         <div className="grid gap-8 md:grid-cols-3">
-          {[employ, career, management].map((img, idx) => (
+          {whyItems.map((item, idx) => (
             <div
               key={idx}
               className="bg-white rounded shadow p-6 text-center space-y-4"
             >
               <img
-                src={img}
-                alt="why-onions"
+                src={item.img}
+                alt={item.title}
                 className="w-16 h-16 mx-auto"
               />
-              <h2 className="text-xl font-semibold">Employment Opportunities</h2>
-              <p className="text-sm text-gray-600">
-                Reducing the rates of unemployment in Nigeria and providing career
-                development opportunities to Teachers.
-              </p>
+              <h2 className="text-xl font-semibold">{item.title}</h2>
+              <p className="text-sm text-gray-600">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* FAQ */}
-      <section>
+      <section id="faq">
         <h1 className="text-3xl font-bold text-center mb-8">
           Frequently Asked Questions
         </h1>
@@ -83,11 +104,15 @@ function Bottom() {
                 >
                   <h4 className="text-gray-800 font-medium text-left">{item.question}</h4>
                   <ChevronDownIcon
-                    className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${openFAQ === idx ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${
+                      openFAQ === idx ? 'rotate-180' : ''
+                    }`}
                   />
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${openFAQ === idx ? 'max-h-40 mt-2' : 'max-h-0'}`}
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openFAQ === idx ? 'max-h-40 mt-2' : 'max-h-0'
+                  }`}
                 >
                   <p className="text-sm text-gray-600">{item.answer}</p>
                 </div>
@@ -98,7 +123,7 @@ function Bottom() {
       </section>
 
       {/* Contact */}
-      <section className="bg-gray-100 p-6 rounded-lg">
+      <section id="contact" className="bg-gray-100 p-6 rounded-lg">
         <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
         <div className="flex flex-col md:flex-row gap-8 items-center">
           {/* Left */}

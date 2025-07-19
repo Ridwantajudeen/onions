@@ -4,18 +4,20 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <header className="flex justify-between items-center h-16 px-4 md:px-8">
-      <img
-        src={onionlogo}
-        alt="logo"
-        className="w-[120px] h-auto"
-      />
+    <header className="flex justify-between items-center h-16 px-4 md:px-8 sticky top-0 bg-white z-50 shadow-sm">
+      <a href="#home">
+        <img
+          src={onionlogo}
+          alt="logo"
+          className="w-[120px] h-auto"
+        />
+      </a>
 
       <nav className="hidden md:flex gap-6 text-sm">
-        <p className="cursor-pointer">Home</p>
-        <p className="cursor-pointer">About us</p>
-        <p className="cursor-pointer">FAQ</p>
-        <p className="cursor-pointer">Contact us</p>
+        <a href="#home" className="cursor-pointer hover:text-green-800">Home</a>
+        <a href="#about" className="cursor-pointer hover:text-green-800">About us</a>
+        <a href="#faq" className="cursor-pointer hover:text-green-800">FAQ</a>
+        <a href="#contact" className="cursor-pointer hover:text-green-800">Contact us</a>
       </nav>
 
       <div className="flex gap-2">

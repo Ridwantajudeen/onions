@@ -3,6 +3,7 @@ import check from "./images/tick-square.svg";
 import board from "./images/with-board.jpg";
 import classroom from "./images/classroom.jpg";
 import parents from "./images/parents.jpg";
+import { Link } from 'react-router-dom';
 
 function Middle() {
   return (
@@ -40,9 +41,12 @@ function Middle() {
               </p>
             </div>
           </div>
+          <Link to="/signup">
           <button className="w-[138.9px] text-xs rounded-[10px] h-[30px] mr-[10px] border-0 bg-[#35740b] text-[#fefefe] mt-5">
             Find jobs
           </button>
+          </Link>
+          
         </div>
 
         <div className="flex-1">
@@ -70,7 +74,8 @@ function Middle() {
               <p>Receive timely teaching appointment reminders and process secure payments effortlessly.</p>
             </div>
           </div>
-          <button
+          <Link to="/signup">
+           <button
   className="
     w-[157px] h-[30px] text-xs rounded-[10px]
     bg-[#fefefe] text-[#35740b] border border-[#35740b]
@@ -79,6 +84,8 @@ function Middle() {
 >
   Hire a Teacher
 </button>
+          </Link>
+         
         </div>
 
         {/* Schools */}
@@ -99,6 +106,7 @@ function Middle() {
               <p>Eliminate ineffective traditional recruitment methods.</p>
             </div>
           </div>
+          <Link to="/signup">
           <button
   className="
     w-[157px] h-[30px] text-xs rounded-[10px]
@@ -108,6 +116,8 @@ function Middle() {
 >
   Hire a Teacher
 </button>
+          </Link>
+          
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import Footer from './Footer';
 import Landing from './Landing-page/Landing';
 import Signup from './Signup';
 import Login from './Login';
+import TeacherDashboard from './TeacherDashboard';
+import EmployerDashboard from './EmployerDashboard';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+         <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
+        <Route path="/employer-dashboard" element={<EmployerDashboard />} />
    
    </Routes>
    </Router>

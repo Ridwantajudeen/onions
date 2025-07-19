@@ -3,6 +3,7 @@ import teacher from './images/teacher.png'
 import vector from './images/Vector.png'
 import profile from './images/profile-circle.png'
 import people from './images/people.png'
+import { Link } from 'react-router-dom';
 
 function Welcome() {
   return (
@@ -21,12 +22,17 @@ function Welcome() {
             qualification.
           </p>
           <div className="flex gap-3 mt-4">
+            <Link to="/signup">
             <button className="px-4 py-1.5 text-xs rounded-lg bg-green-800 text-white hover:bg-white hover:text-green-800 hover:border hover:border-green-800">
               Find Jobs
             </button>
+            </Link>
+            <Link to="/signup">
             <button className="px-4 py-1.5 text-xs rounded-lg bg-white text-green-800 border border-green-800 hover:bg-green-800 hover:text-white">
               Hire a Teacher
             </button>
+            </Link>
+            
           </div>
         </div>
 

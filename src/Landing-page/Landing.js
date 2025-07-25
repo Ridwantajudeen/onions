@@ -7,7 +7,7 @@ function Landing() {
   return (
     <div id="home">
       <Header />
-      <main className="grid place-items-center gap-8">
+      <main className="grid place-items-center pt-10 gap-8">
         <Welcome />
         <Middle />
         <Bottom />
